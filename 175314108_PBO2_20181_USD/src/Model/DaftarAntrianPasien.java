@@ -67,7 +67,7 @@ System.out.println(ft.format(date));
 * @throws Exception
 */
 public void Mendaftar(Pasien pasien) {
-daftarPasien.add(pasien);   // mengisi data pada variabel daftarPasien dengan variabel lokal daftarPasien 
+daftarPasien.add(pasien);   // isi data pada variabel daftarPasien dengan variabel DaftarAntrianPasien 
 }
 
 }

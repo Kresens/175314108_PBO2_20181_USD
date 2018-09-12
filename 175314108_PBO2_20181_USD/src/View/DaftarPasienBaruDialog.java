@@ -37,7 +37,7 @@ public class DaftarPasienBaruDialog extends JDialog {
         this.setLayout(null);
 
         judulLabel = new JLabel();
-        judulLabel.setText("Form Daftar Pasien Baru");
+        judulLabel.setText("Formulir Daftar Pasien Baru");
         judulLabel.setFont(new Font(null, Font.CENTER_BASELINE, 16));
         judulLabel.setBounds(50, 20, 250, 50);
         this.add(judulLabel);

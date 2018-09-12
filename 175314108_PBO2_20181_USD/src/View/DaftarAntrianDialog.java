@@ -39,7 +39,7 @@ public class DaftarAntrianDialog extends JDialog {
         this.setLayout(null);
 
         judulLabel = new JLabel();
-        judulLabel.setText("Form Daftar Antrian");
+        judulLabel.setText("Formulir Daftar Antrian");
         judulLabel.setFont(new Font(null, Font.CENTER_BASELINE, 16));
         judulLabel.setBounds(50, 20, 250, 30);
         this.add(judulLabel);
