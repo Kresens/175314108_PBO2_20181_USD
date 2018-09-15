@@ -28,6 +28,7 @@ public class DaftarAntrianDialog extends JDialog implements ActionListener {
     private JTextField namaText;
     private JTextField noRMText;
     private JTextField alamatText;
+    private JButton tambahButton;
     private JButton antriButton;
     private JButton saveButton;
 
@@ -86,25 +87,29 @@ public class DaftarAntrianDialog extends JDialog implements ActionListener {
     }
 
     @Override
-    public void actionPerformed(ActionEvent antri) {
-        if (antri.getSource() == noRMText) {
+    public void actionPerformed(ActionEvent ae) {
+        if (ae.getSource() == noRMText) {
             Pasien cari = Pasien.cariPasien(noRMText.getText());
-            if (cari == null) {
-                JOptionPane.showMessageDialog(null, "Data Pasien " + noRMText.getText() + " Tidak Ada");
-            } else {
+            if (cari == null){
+                JOptionPane.showConfirmDialog(null, "Orang Tidak Ada");
+            }else{
                 namaText.setText(cari.getNama());
-                alamatText.setText(cari.getAlamat());
             }
         }
-        if (antri.getSource() == antriButton) {
-            Pasien cari = Pasien.cariPasien(noRMText.getText());
-            for (int i = 0; i < Pasien.daftarPasien.size(); i++) {
-                if (cari == Pasien.daftarPasien.get(i)) {
-                    JOptionPane.showMessageDialog(null, "Nomor Antrian: " + (i + 1));
-
-                    this.dispose();
-                }
-            }
+        if (ae.getSource() == namaText) {
+            JOptionPane.showMessageDialog(null, namaText.getText());
+        }
+        if (ae.getSource() == alamatText) {
+            JOptionPane.showMessageDialog(null, alamatText.getText());
+        }if (ae.getSource() == tambahButton) {
+            Pasien baru = new Pasien();
+            baru.setNama(namaText.getText());
+            baru.setAlamat(alamatText.getText());
+            
+            Pasien.daftarPasienBaru(baru);
+            
+            JOptionPane.showMessageDialog(null, "Data Telah Ditambahkan");
         }
     }
-}
+ }
+

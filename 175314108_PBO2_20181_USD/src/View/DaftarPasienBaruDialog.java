@@ -9,6 +9,8 @@ import Model.Pasien;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -156,7 +158,11 @@ public class DaftarPasienBaruDialog extends JDialog implements ActionListener{
             Pasien baru = new Pasien();
             baru.setNama(namaText.getText());
             baru.setAlamat(alamatText.getText());
-            baru.setNoRekamMedis(noRekamMedisText.getText());
+            try {
+                baru.setNoRekamMedis(noRekamMedisText.getText());
+            } catch (Exception ex) {
+                Logger.getLogger(DaftarPasienBaruDialog.class.getName()).log(Level.SEVERE, null, ex);
+            }
             
             Pasien.daftarPasienBaru(baru);
 
