@@ -9,7 +9,7 @@ import View.DaftarPasienBaruDialog;
 
 /**
  *
- * @author User
+ * @author Priska
  */
 public class testDaftarPasienBaruDialog {
 
@@ -17,8 +17,10 @@ public class testDaftarPasienBaruDialog {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
         DaftarPasienBaruDialog test = new DaftarPasienBaruDialog();
-        test.setSize(300, 400);
+        test.setSize(500, 400);
         test.setVisible(true);
+    
     }
 }

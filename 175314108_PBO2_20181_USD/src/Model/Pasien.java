@@ -15,14 +15,10 @@ import java.util.Date;
  */
 public class Pasien {
 
-    public void tambahPasienBaru(Pasien pasien) {
-        daftarPasienKlinik.add(pasien);
+    public static void daftarPasienBaru(Pasien baru) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    public static Pasien cariPasien(String noRekamMedis) {
-        
-        return null;
-    }
+    
     private String noRekamMedis;
     private String nama;
     private String alamat;
@@ -32,7 +28,14 @@ public class Pasien {
     private int tahunLahir;
     private String nik;
     
-    public static ArrayList<Pasien> daftarPasienKlinik = new ArrayList<Pasien>();
+    public static ArrayList<Pasien> daftarPasien = new ArrayList<Pasien>();
+    
+     public Pasien() {
+    }
+     
+      public Pasien(String nama) {
+        this.nama = nama;
+    }
 
     /**
      * constructor untuk mendeklarasikan objek pasien
@@ -84,8 +87,8 @@ public class Pasien {
     }
 
     /**
-     * method untuk mengset nilai dari variabel nema dengan parameter lokal nama
-     * yang bertipe String
+     * suatu method untuk set nilai dari variabel nama dengan parameter lokal nama
+     * dan bertipe String
      *
      * @param nama
      */
@@ -103,8 +106,8 @@ public class Pasien {
     }
 
     /**
-     * method untuk mengset nilai dari variabel alamat dengan parameter lokal
-     * alamat yang bertipe String
+     * suatu method untuk set nilai dari variabel alamat dengan parameter lokal
+     * alamat dan bertipe data String
      *
      * @param alamat
      */
@@ -241,5 +244,18 @@ public class Pasien {
         SimpleDateFormat ft = new SimpleDateFormat(" ");
         nomorRekamMEdis = ft.format(date) + nama.substring(0, 3);
         return nomorRekamMEdis;
+    }
+    
+    public void tambahPasienBaru(Pasien pasien) {
+        daftarPasien.add(pasien);
+    }
+    
+    public static Pasien cariPasien(String noRekamMedis) {
+        for (int i = 0; i < daftarPasien.size(); i++) {
+            if (daftarPasien.get(i).getNoRekamMedis() == noRekamMedis) {
+                return daftarPasien.get(i);
+            }
+        }
+        return null;
     }
 }

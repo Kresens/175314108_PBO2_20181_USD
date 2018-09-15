@@ -9,16 +9,17 @@ import View.DaftarAntrianDialog;
 
 /**
  *
- * @author User
+ * @author Priska
  */
-public class testDaftarAntrian {
+public class testTambahAntrianDialog {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        DaftarAntrianDialog test = new DaftarAntrianDialog();
-        test.setSize(300, 400);
+        
+        DaftarAntrianDialog test = new DaftarAntrianDialog("Antrian Pasien");
+        test.setSize(500, 400);
         test.setVisible(true);
-    }
+    }  
 }

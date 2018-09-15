@@ -5,17 +5,21 @@
  */
 package View;
 
+import Model.Pasien;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 /**
  *
  * @author User
  */
-public class DaftarAntrianDialog extends JDialog {
+public class DaftarAntrianDialog extends JDialog implements ActionListener {
 
     private JLabel judulLabel;
     private JLabel namaLabel;
@@ -24,6 +28,7 @@ public class DaftarAntrianDialog extends JDialog {
     private JTextField namaText;
     private JTextField noRMText;
     private JTextField alamatText;
+    private JButton antriButton;
     private JButton saveButton;
 
     public DaftarAntrianDialog() {
@@ -76,5 +81,30 @@ public class DaftarAntrianDialog extends JDialog {
         saveButton.setBounds(110, 180, 80, 30);
         this.add(saveButton);
 
+        noRMText.addActionListener(this);
+        antriButton.addActionListener(this);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent antri) {
+        if (antri.getSource() == noRMText) {
+            Pasien cari = Pasien.cariPasien(noRMText.getText());
+            if (cari == null) {
+                JOptionPane.showMessageDialog(null, "Data Pasien " + noRMText.getText() + " Tidak Ada");
+            } else {
+                namaText.setText(cari.getNama());
+                alamatText.setText(cari.getAlamat());
+            }
+        }
+        if (antri.getSource() == antriButton) {
+            Pasien cari = Pasien.cariPasien(noRMText.getText());
+            for (int i = 0; i < Pasien.daftarPasien.size(); i++) {
+                if (cari == Pasien.daftarPasien.get(i)) {
+                    JOptionPane.showMessageDialog(null, "Nomor Antrian: " + (i + 1));
+
+                    this.dispose();
+                }
+            }
+        }
     }
 }

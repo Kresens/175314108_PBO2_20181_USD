@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package TestPraktikum_12September2018;
+package Test;
 
 import Model.Pasien;
 import java.io.PrintStream;
@@ -38,14 +38,14 @@ public class TestKelasPasien {
                 "19990110" // NIK
         );
 
-//        Pasien.tambahPasienBaru(test);
-//        Pasien.tambahPasienBaru(test1);
+        Pasien.tambahPasienBaru(test);
+        Pasien.tambahPasienBaru(test1);
 
-        for (int i = 0; i < Pasien.daftarPasienKlinik.size(); i++) {
-            System.out.println(Pasien.daftarPasienKlinik.get(i).getNama());
+        for (int i = 0; i < Pasien.daftarPasien.size(); i++) {
+            System.out.println("Nama : " + Pasien.daftarPasien.get(i).getNama());
         }
 
-        Pasien cari = Pasien.cariPasien("19990110");
+        Pasien cari = Pasien.cariPasien("19740112");
         System.out.println("Nama Hasil Pencarian = " + cari.getNama());
     }
 }
