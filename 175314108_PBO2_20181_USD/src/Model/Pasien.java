@@ -15,9 +15,6 @@ import java.util.Date;
  */
 public class Pasien {
 
-    public static void daftarPasienBaru(Pasien baru) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
     private String noRekamMedis;
     private String nama;
