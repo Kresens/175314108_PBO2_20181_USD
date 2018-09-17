@@ -38,8 +38,8 @@ public class TestKelasPasien {
                 "19990110" // NIK
         );
 
-        Pasien.tambahPasienBaru(test);
-        Pasien.tambahPasienBaru(test1);
+        Pasien.daftarPasienBaru(test);
+        Pasien.daftarPasienBaru(test1);
 
         for (int i = 0; i < Pasien.daftarPasien.size(); i++) {
             System.out.println("Nama : " + Pasien.daftarPasien.get(i).getNama());

@@ -14,7 +14,6 @@ import java.util.Date;
  * @author admin
  */
 public class Pasien {
-
     
     private String noRekamMedis;
     private String nama;
@@ -241,6 +240,9 @@ public class Pasien {
         SimpleDateFormat ft = new SimpleDateFormat(" ");
         nomorRekamMEdis = ft.format(date) + nama.substring(0, 3);
         return nomorRekamMEdis;
+    }
+    public static void daftarPasienBaru(Pasien pasien) {
+         daftarPasien.add(pasien);
     }
     
     public void tambahPasienBaru(Pasien pasien) {
