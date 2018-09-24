@@ -15,6 +15,11 @@ import java.util.Date;
  */
 public class AntrianPasien {
     private Klinik klinik;
+    private int tanggalAntrian;
+    private int bulanAntrian;
+    private int tahunAntrian;
+    private Pasien daftarPasienantri[];
+    
     private ArrayList<Pasien> daftarPasien = new ArrayList<Pasien>();
 
     /**
@@ -65,14 +70,29 @@ public class AntrianPasien {
     /**
      * Suatu method untuk menampilkan tanggal dan waktu pada antrian
      */
-    public void TanggalAntrian() {
-        // membuat objek baru date dengan tipe data Date
-        Date date = new Date();
-        // membuat objek ft bertipe simpleDateFormat sebagai format tampilan tanggal
-        SimpleDateFormat ft = new SimpleDateFormat("E dd/MM/yyy 'at' hh:mm:ss");
-        // menampilkan data dari objek ft dengan format date
-        System.out.println(ft.format(date));
+    public void settanggalAntrian(int tanggalAntrian)throws Exception{
+        if (tanggalAntrian < 32 && tanggalAntrian > 0) {
+            this.tanggalAntrian = tanggalAntrian;
+    } else { throw new Exception(" tanggal tidak valid");
+        }
     }
+
+    /* 
+    *merupakan menthod setBulanAntrian() dengan parameter nilai dari objek BulanAntrian bertipr integer, 
+    *menthod ini diberi kode throws exception untuk suatu kondisi untuk mencegah eksekusi berjalan normal atau exception dari menthod setBulanAntrian() */
+    public void setBulanAntrian(int bulanAntrian) throws Exception{
+        if (bulanAntrian < 13 && bulanAntrian > 0) {
+            this.bulanAntrian = bulanAntrian;
+        }  else { throw new Exception(" bulan anda salah");
+       }
+    }
+     public void setTahunAntrian(int tahunAntrian) throws Exception {
+        if (tahunAntrian > 0) {
+            this.tahunAntrian = tahunAntrian;
+        } else { throw new Exception(" tahun anda salah");
+        }
+     }
+        
 
     /**
      * Method untuk mendaftar pasien baru di nomor antrian
@@ -84,6 +104,8 @@ public class AntrianPasien {
         // mengisi data pada variabel daftarPasien dengan variabel lokal daftarPasien 
         daftarPasien.add(pasien);
     }
+    
+    
 }
 
 

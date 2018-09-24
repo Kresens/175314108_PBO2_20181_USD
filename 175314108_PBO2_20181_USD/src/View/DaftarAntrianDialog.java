@@ -13,6 +13,7 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
 /**
@@ -30,7 +31,8 @@ public class DaftarAntrianDialog extends JDialog implements ActionListener {
     private JTextField alamatText;
     private JButton tambahButton;
     private JButton antriButton;
-    private JButton saveButton;
+    private JRadioButton daftarbutton;
+    private JButton daftar;
 
     public DaftarAntrianDialog() {
         init();
@@ -76,11 +78,12 @@ public class DaftarAntrianDialog extends JDialog implements ActionListener {
         alamatText = new JTextField();
         alamatText.setBounds(110, 130, 120, 20);
         this.add(alamatText);
-
-        saveButton = new JButton();
-        saveButton.setText("Save");
-        saveButton.setBounds(110, 180, 80, 30);
-        this.add(saveButton);
+        
+        this.setLayout(null);
+        daftar = new JButton("daftar");
+        daftar.setBounds(100, 300, 100, 30);
+        daftar.setFont(new Font(null,Font.BOLD,20));   
+        this.add(daftar);
 
         noRMText.addActionListener(this);
         antriButton.addActionListener(this);

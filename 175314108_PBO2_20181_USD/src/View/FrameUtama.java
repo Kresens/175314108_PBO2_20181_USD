@@ -19,9 +19,9 @@ import javax.swing.JMenuItem;
 public class FrameUtama extends JFrame implements ActionListener{
     private JMenuBar menuBar;
     private JMenu pasienMenu;
-    private JMenu DaftarPasienMenu;
-    private JMenu tambahAntrianMenu;
-    private JMenu exitMenu;
+    private JMenuItem DaftarAntrianDialog;
+    private JMenuItem DaftarPasienBaruDialog;
+    private JMenuItem exitMenu;
     
     public FrameUtama() {
         init();
@@ -31,33 +31,33 @@ public class FrameUtama extends JFrame implements ActionListener{
 
         menuBar = new JMenuBar();
 
-        this.setTitle("Frame");
+        this.setTitle("Frame Utama");
         pasienMenu = new JMenu("Pasien");
-        DaftarPasienMenu = new JMenu("Tambah Pasien");
-        tambahAntrianMenu = new JMenu("Tambah Antrian");
+        DaftarAntrianDialog = new JMenu("Tambah Pasien");
+        DaftarPasienBaruDialog = new JMenu("Tambah Antrian");
         exitMenu = new JMenu("Keluar");
 
         menuBar.add(pasienMenu);
-        pasienMenu.add(DaftarPasienMenu);
-        pasienMenu.add(tambahAntrianMenu);
+        pasienMenu.add(DaftarAntrianDialog);
+        pasienMenu.add(DaftarPasienBaruDialog);
         pasienMenu.add(exitMenu);
 
         this.setJMenuBar(menuBar);
 
-        DaftarPasienMenu.addActionListener(this);
-        tambahAntrianMenu.addActionListener(this);
+        DaftarAntrianDialog.addActionListener(this);
+        DaftarPasienBaruDialog.addActionListener(this);
         exitMenu.addActionListener(this);
 
     }
 
     @Override
     public void actionPerformed(ActionEvent antri) {
-        if (antri.getSource() == DaftarPasienMenu) {
+        if (antri.getSource() == DaftarAntrianDialog) {
             DaftarPasienBaruDialog test = new DaftarPasienBaruDialog("Formulir Tambah Pasien");
             test.setSize(600, 500);
             test.setVisible(true);
         }
-        if (antri.getSource() == tambahAntrianMenu) {
+        if (antri.getSource() == DaftarPasienBaruDialog) {
             DaftarAntrianDialog test1 = new DaftarAntrianDialog("Formulir Tambah Antrian Pasien");
             test1.setSize(600, 500);
             test1.setVisible(true);
