@@ -16,14 +16,14 @@ import javax.swing.JMenuItem;
  *
  * @author Priska
  */
-public class Frame extends JFrame implements ActionListener{
+public class FrameUtama extends JFrame implements ActionListener{
     private JMenuBar menuBar;
     private JMenu pasienMenu;
     private JMenu DaftarPasienMenu;
     private JMenu tambahAntrianMenu;
     private JMenu exitMenu;
     
-    public Frame() {
+    public FrameUtama() {
         init();
     }
 
