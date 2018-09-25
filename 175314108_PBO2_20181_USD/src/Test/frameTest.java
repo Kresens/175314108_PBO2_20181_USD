@@ -5,6 +5,7 @@
  */
 package Test;
 
+import View.FrameUtama;
 import java.awt.Frame;
 import javax.swing.JFrame;
 
@@ -18,7 +19,7 @@ public class frameTest {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-       Frame test = new Frame();
+       FrameUtama test = new FrameUtama();
         test.setSize(500, 400);
         test.setVisible(true);
         

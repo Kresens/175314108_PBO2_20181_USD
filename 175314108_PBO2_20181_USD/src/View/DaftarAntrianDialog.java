@@ -6,14 +6,15 @@
 package View;
 
 import Model.Pasien;
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JRadioButton;
+import javax.swing.JMenuBar;
 import javax.swing.JTextField;
 
 /**
@@ -22,17 +23,21 @@ import javax.swing.JTextField;
  */
 public class DaftarAntrianDialog extends JDialog implements ActionListener {
 
-    private JLabel judulLabel;
-    private JLabel namaLabel;
-    private JLabel noRMLabel;
-    private JLabel alamatLabel;
+    private JLabel JudulLabel;
+    private JLabel NamaLabel;
+    private JLabel Alamat;
+    private JLabel NoRM;
+    private JLabel Tanggal;
+    private JLabel Bulan;
+    private JLabel Tahun;
     private JTextField namaText;
-    private JTextField noRMText;
-    private JTextField alamatText;
-    private JButton tambahButton;
-    private JButton antriButton;
-    private JRadioButton daftarbutton;
-    private JButton daftar;
+    private JTextField NoRMText;
+    private JTextField AlamatText;
+    private JComboBox Tanggaltext;
+    private JComboBox Tahuntext;
+    private JComboBox Bulantext;
+    private JButton saveButton;
+    private JMenuBar menuBar;
 
     public DaftarAntrianDialog() {
         init();
@@ -46,73 +51,116 @@ public class DaftarAntrianDialog extends JDialog implements ActionListener {
     public void init() {
         this.setLayout(null);
 
-        judulLabel = new JLabel();
-        judulLabel.setText("Formulir Daftar Antrian");
-        judulLabel.setFont(new Font(null, Font.CENTER_BASELINE, 16));
-        judulLabel.setBounds(50, 20, 250, 30);
-        this.add(judulLabel);
-
-        noRMLabel = new JLabel();
-        noRMLabel.setText("No. RM");
-        noRMLabel.setBounds(50, 70, 80, 20);
-        this.add(noRMLabel);
-
-        namaLabel = new JLabel();
-        namaLabel.setText("Nama");
-        namaLabel.setBounds(50, 100, 80, 20);
-        this.add(namaLabel);
-
-        alamatLabel = new JLabel();
-        alamatLabel.setText("Alamat");
-        alamatLabel.setBounds(50, 130, 80, 20);
-        this.add(alamatLabel);
-
-        noRMText = new JTextField();
-        noRMText.setBounds(110, 70, 120, 20);
-        this.add(noRMText);
-
-        namaText = new JTextField();
-        namaText.setBounds(110, 100, 120, 20);
-        this.add(namaText);
-
-        alamatText = new JTextField();
-        alamatText.setBounds(110, 130, 120, 20);
-        this.add(alamatText);
         
+        menuBar = new JMenuBar();
+        this.setTitle("TAMBAH ANTRIAN ");
+
+        JudulLabel = new JLabel("TAMBAH ANTRIAN");
+        JudulLabel.setFont(new Font(null, Font.CENTER_BASELINE, 16));
+        JudulLabel.setBounds(190, 5, 200, 40);
+        this.add(JudulLabel);
+        
+        NoRM = new JLabel("NoRM");
+        NoRM.setBounds(50, 50, 50, 60);
+        this.add(NoRM);
+        
+        NamaLabel = new JLabel("Nama");
+        NamaLabel.setBounds(300, 50, 50, 60);
+        this.add(NamaLabel);
+       
+        namaText = new JTextField();
+        namaText.setBounds (345,72,120, 20);
+        namaText.setBackground(Color.pink);
+        this.add(namaText); 
+        
+        Alamat = new JLabel("Alamat ");
+        Alamat.setBounds(300, 70, 70, 80);
+        this.add(Alamat);
+        
+        AlamatText = new JTextField();
+        AlamatText.setBounds (345,105,120,60);
+        AlamatText.setBackground(Color.pink);
+        this.add(AlamatText);
+        
+        Tanggal = new JLabel("Tanggal ");
+        Tanggal.setBounds(50, 70, 70, 80);
+        this.add(Tanggal);
+        
+        Bulan = new JLabel("Bulan ");
+        Bulan.setBounds(50, 60, 60, 180);
+        this.add(Bulan);
+
+        Tahun = new JLabel("Tahun ");
+        Tahun.setBounds(50, 90, 80, 200);
+        this.add(Tahun);
+
+        saveButton = new JButton("Simpan");
+        saveButton.setBounds(230, 240, 80, 20);
+        saveButton.setSize(85, 30);
+        this.add(saveButton);
+
         this.setLayout(null);
-        daftar = new JButton("daftar");
-        daftar.setBounds(100, 300, 100, 30);
-        daftar.setFont(new Font(null,Font.BOLD,20));   
-        this.add(daftar);
+        NoRMText = new JTextField();
+        NoRMText.setBounds(100, 70, 100, 20);
+        NoRMText.setBackground(Color.pink);
+        this.add(NoRMText);
 
-        noRMText.addActionListener(this);
-        antriButton.addActionListener(this);
+        this.setLayout(null);
+        Tanggaltext = new JComboBox();
+        for (int i = 1; i <= 31; i++) {
+            Tanggaltext.addItem(i);
+
+        }
+        Tanggaltext.setBounds(100, 100, 100, 20);
+        Tanggaltext.setBackground(Color.pink);
+        this.add(Tanggaltext);
+
+        this.setLayout(null);
+        Bulantext = new JComboBox();
+
+        Bulantext.addItem("Januari");
+        Bulantext.addItem("Februari");
+        Bulantext.addItem("Maret");
+        Bulantext.addItem("April");
+        Bulantext.addItem("Mei");
+        Bulantext.addItem("Juni");
+        Bulantext.addItem("Juli");
+        Bulantext.addItem("Agustus");
+        Bulantext.addItem("September");
+        Bulantext.addItem("Oktober");
+        Bulantext.addItem("November");
+        Bulantext.addItem("Desember");
+
+        Bulantext.setBounds(100, 140, 100, 20);
+        Bulantext.setBackground(Color.pink);
+        this.add(Bulantext);
+
+        this.setLayout(null);
+        Tahuntext = new JComboBox();
+
+        for (int i = 1990; i <= 2018; i++) {
+
+            Tahuntext.addItem(i);
+
+        }
+        Tahuntext.setBounds(100, 180, 100, 20);
+        Tahuntext.setBackground(Color.pink);
+        this.add(Tahuntext);
     }
-
+    
+    
     @Override
-    public void actionPerformed(ActionEvent ae) {
-        if (ae.getSource() == noRMText) {
-            Pasien cari = Pasien.cariPasien(noRMText.getText());
-            if (cari == null){
-                JOptionPane.showConfirmDialog(null, "Orang Tidak Ada");
-            }else{
-                namaText.setText(cari.getNama());
-            }
-        }
-        if (ae.getSource() == namaText) {
-            JOptionPane.showMessageDialog(null, namaText.getText());
-        }
-        if (ae.getSource() == alamatText) {
-            JOptionPane.showMessageDialog(null, alamatText.getText());
-        }if (ae.getSource() == tambahButton) {
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == saveButton) {
             Pasien baru = new Pasien();
             baru.setNama(namaText.getText());
-            baru.setAlamat(alamatText.getText());
+            baru.setAlamat(AlamatText.getText());
             
+
             Pasien.daftarPasienBaru(baru);
-            
-            JOptionPane.showMessageDialog(null, "Data Telah Ditambahkan");
+
         }
+
     }
  }
 

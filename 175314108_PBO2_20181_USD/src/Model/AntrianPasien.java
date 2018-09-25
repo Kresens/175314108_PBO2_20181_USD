@@ -104,9 +104,14 @@ public class AntrianPasien {
         // mengisi data pada variabel daftarPasien dengan variabel lokal daftarPasien 
         daftarPasien.add(pasien);
     }
-    
+    public Pasien cariPasien(String string){
+   
+     for (int i = 0; i < daftarPasien.size(); i++) {
+            if (daftarPasien.get(i).noRekamMedis == string) {
+                return daftarPasien.get(i);
+            }
+        }
+        return null;
+    }
     
 }
-
-
-

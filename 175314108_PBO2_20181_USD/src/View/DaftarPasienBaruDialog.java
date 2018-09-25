@@ -6,6 +6,7 @@
 package View;
 
 import Model.Pasien;
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,6 +17,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JMenuBar;
 import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
@@ -26,151 +28,145 @@ import javax.swing.JTextField;
  */
 public class DaftarPasienBaruDialog extends JDialog implements ActionListener{
 
-    private JLabel judulLabel;
-    private JLabel namaLabel;
-    private JLabel alamatLabel;
-    private JLabel nikLabel;
-    private JTextField namaText;
-    private JTextField alamatText;
-    private JTextField noRekamMedisText;
-    private JRadioButton priaRadio;
-    private JRadioButton wanitaRadio;
-    private JLabel tanggalLahirLabel;
-    private JLabel bulanLahirLabel;
-    private JLabel tahunLahirLabel;
-    private JComboBox tanggalCombo;
-    private JComboBox bulanCombo;
-    private JComboBox tahunCombo;
-    private JButton tambahButton;
-    private JButton saveButton;
+     private JLabel judulLabel;
+     private JLabel namaLabel;
+     private JLabel alamatLabel;
+     private JLabel tanggalLahirLabel;
+     private JLabel bulanLahirLabel;
+     private JLabel TahunLahirLabel;
+     private JLabel JenisKelaminLabel;
+     private JLabel NoRMLabel; 
+     private JTextField namaText, AlamatText, NoLabelText;
+     private JButton saveButton;
+     private JComboBox tglLahir;
+     private JComboBox blnLahir;
+     private JComboBox thnLahir;
+     private JComboBox JenisKelamin;
+     private JMenuBar menuBar;
     
      public DaftarPasienBaruDialog() {
         init();
-    }
-
+     }
     public DaftarPasienBaruDialog(String title) {
         this.setTitle(title);
         init();
     }
-    
-    public void init() {
+        public void init() {
         this.setLayout(null);
-    
-        judulLabel = new JLabel();
-        judulLabel.setText("FORMULIR DAFTAR PASIEN");
-        judulLabel.setFont(new Font(null, Font.CENTER_BASELINE, 16));
-        judulLabel.setBounds(50, 20, 250, 50);
+         
+        menuBar = new JMenuBar();
+        this.setTitle("TAMBAH PASIEN BARU");
+        
+        judulLabel = new JLabel(" PASIEN BARU ");
+        judulLabel.setFont(new Font(null, Font.CENTER_BASELINE,16));
+        judulLabel.setBounds(200, 5 , 200, 40);
         this.add(judulLabel);
-
-        namaLabel = new JLabel();
-        namaLabel.setText("Nama");
-        namaLabel.setBounds(50, 90, 80, 20);
+        
+        namaLabel = new JLabel("Nama");
+        namaLabel.setBounds(20, 72, 120, 20);
         this.add(namaLabel);
-
+        
         namaText = new JTextField();
-        namaText.setBounds(150, 90, 120, 20);
-        this.add(namaText);
-
-        priaRadio = new JRadioButton("Male");
-        priaRadio.setBounds(150, 120, 80, 20);
-        this.add(priaRadio);
-
-        wanitaRadio = new JRadioButton("Female");
-        wanitaRadio.setBounds(240, 120, 100, 20);
-        this.add(wanitaRadio);
-
-        ButtonGroup JenisKelaminButonGroup = new ButtonGroup();
-        JenisKelaminButonGroup.add(priaRadio);
-        JenisKelaminButonGroup.add(wanitaRadio);
-
-        tanggalLahirLabel = new JLabel("Tanggal Lahir");
-        tanggalLahirLabel.setBounds(50, 180, 80, 20);
-        this.add(tanggalLahirLabel);
-
-        tanggalCombo = new JComboBox(tanggalArray);
-        tanggalCombo.setBounds(150, 180, 80, 20);
-        this.add(tanggalCombo);
-
-        bulanLahirLabel = new JLabel("Bulan Lahir");
-        bulanLahirLabel.setBounds(250, 150, 80, 20);
-        this.add(bulanLahirLabel);
-
-        bulanCombo = new JComboBox(bulanArray);
-        bulanCombo.setBounds(250, 180, 80, 20);
-        this.add(bulanCombo);
-
-        tahunLahirLabel = new JLabel("Tahun Lahir");
-        tahunLahirLabel.setBounds(350, 150, 80, 20);
-        this.add(tahunLahirLabel);
-
-        tahunCombo = new JComboBox(tahunArray);
-        tahunCombo.setBounds(350, 180, 80, 20);
-        this.add(tahunCombo);
-
-        alamatLabel = new JLabel();
-        alamatLabel.setText("Alamat");
-        alamatLabel.setBounds(50, 210, 80, 20);
+        namaText.setBounds (100,77,95,20);
+        namaText.setBackground(Color.white);
+        this.add(namaText); 
+        
+        alamatLabel = new JLabel("Alamat ");
+        alamatLabel.setBounds(20, 90, 70, 65);
         this.add(alamatLabel);
-
-        alamatText = new JTextField();
-        alamatText.setBounds(150, 210, 120, 20);
-        this.add(alamatText);
-
-        nikLabel = new JLabel();
-        nikLabel.setText("NIK");
-        nikLabel.setBounds(50, 250, 80, 20);
-        this.add(nikLabel);
-
-        noRekamMedisText = new JTextField();
-        noRekamMedisText.setBounds(150, 250, 120, 20);
-        this.add(noRekamMedisText);
         
-        tambahButton = new JButton();
-        tambahButton.setText("Tambah");
-        tambahButton.setBounds(150, 180, 80, 30);
-        this.add(tambahButton);
-
-        tambahButton.addActionListener((ActionListener) this);
-
-        saveButton = new JButton();
-        saveButton.setText("Simpan");
-        saveButton.setBounds(150, 280, 80, 30);
+        AlamatText = new JTextField();
+        AlamatText.setBounds (100,110,100,30);
+        AlamatText.setBackground(Color.white);
+        this.add(AlamatText);
+        
+        tanggalLahirLabel = new JLabel("Tgl");
+        tanggalLahirLabel.setBounds(20, 130, 100, 65);
+        this.add(tanggalLahirLabel);
+        
+        JComboBox tglLahir = new JComboBox();
+         for (int i = 1; i <=31; i++) {
+           tglLahir.addItem(i);
+        }
+        tglLahir.setBounds(45,153,67,20);
+        tglLahir.setBackground(Color.white);
+        this.add(tglLahir);
+        
+        bulanLahirLabel = new JLabel("Bln");
+        bulanLahirLabel.setBounds(120, 130, 100, 65);
+        this.add(bulanLahirLabel);
+        
+        JComboBox blnLahir = new JComboBox();
+        blnLahir.addItem("Jan");
+        blnLahir.addItem("Feb");
+        blnLahir.addItem("Mar");
+        blnLahir.addItem("Apr");
+        blnLahir.addItem("May");
+        blnLahir.addItem("Jun");
+        blnLahir.addItem("Jul");
+        blnLahir.addItem("aug");
+        blnLahir.addItem("Sep");
+        blnLahir.addItem("Oct");
+        blnLahir.addItem("Nov");
+        blnLahir.addItem("Dec");
+        blnLahir.setBackground(Color.white);
+        blnLahir.setBounds(149,153,67,20);
+        this.add(blnLahir);
+        
+        TahunLahirLabel = new JLabel("Thn");
+        TahunLahirLabel.setBounds(225,130,100, 65);
+        this.add(TahunLahirLabel);
+        
+        JComboBox thnLahir = new JComboBox();
+        for (int i = 1990; i <=2018; i++) {
+            thnLahir.addItem(i);
+        }
+        thnLahir.setBackground(Color.white);
+        thnLahir.setBounds(255,153,67,20);
+        this.add(thnLahir);
+        
+        
+        
+        JenisKelaminLabel = new JLabel("Jenis Kelamin");
+        JenisKelaminLabel.setBounds(20, 170,100, 65);
+        this.add(JenisKelaminLabel);
+        
+        JComboBox Jeniskelamin = new JComboBox();
+        Jeniskelamin.addItem("Laki-Laki");
+        Jeniskelamin.addItem("Perempuan");
+        Jeniskelamin.setBounds(110,193,80,20);
+        Jeniskelamin.setBackground(Color.white);
+        this.add(Jeniskelamin);
+        
+        NoRMLabel = new JLabel("No RM");
+        NoRMLabel.setBounds(20, 210, 100, 65);
+        this.add(NoRMLabel);
+        
+        NoLabelText = new JTextField();
+        NoLabelText.setBounds(100, 235, 100, 20);
+        this.add(NoLabelText);
+        
+        saveButton = new JButton("Simpan");
+        saveButton.setBackground(Color.lightGray);
+        saveButton.setBounds(220,300,80,20);
+        saveButton.setSize(85, 30);
         this.add(saveButton);
-        saveButton.addActionListener((ActionListener) this);
-
-    }
         
-    private String tanggalArray[] = {"1", "2", "3", "4", "5", "6", "7", "8", "9",
-        "10", "11", "12", "13", "14", "15", "16", "17", "18",
-        "19", "20", "21", "22", "23", "24", "25", "26", "27",
-        "28", "29", "30", "31"};
-    
-    private String bulanArray[] = {"1", "2", "3", "4", "5", "6", "7", "8", "9",
-        "10", "11", "12"};
-    
-    private String tahunArray[] = {"1990", "1991", "1992", "1993", "1994",
-        "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004",
-        "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014",
-        "2015", "2016", "2017", "2018"};
-    
+        
+    }
 
     @Override
-    public void actionPerformed(ActionEvent pasien) {
-        if (pasien.getSource() == saveButton) {
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == saveButton) {
             Pasien baru = new Pasien();
             baru.setNama(namaText.getText());
-            baru.setAlamat(alamatText.getText());
-            try {
-                baru.setNoRekamMedis(noRekamMedisText.getText());
-            } catch (Exception ex) {
-                Logger.getLogger(DaftarPasienBaruDialog.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            baru.setAlamat(AlamatText.getText());
             
+         
+
             Pasien.daftarPasienBaru(baru);
 
-            JOptionPane.showMessageDialog(null, "Data Ditambahkan");
-
-            this.dispose();
         }
+
     }
 }

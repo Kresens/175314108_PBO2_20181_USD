@@ -11,7 +11,7 @@ import View.DaftarAntrianDialog;
  *
  * @author Priska
  */
-public class testTambahAntrianDialog {
+public class testDaftarAntrianDialog {
 
     /**
      * @param args the command line arguments
