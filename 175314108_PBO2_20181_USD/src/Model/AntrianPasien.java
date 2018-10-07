@@ -107,7 +107,7 @@ public class AntrianPasien {
     public Pasien cariPasien(String string){
    
      for (int i = 0; i < daftarPasien.size(); i++) {
-            if (daftarPasien.get(i).noRekamMedis == string) {
+            if (daftarPasien.get(i).getNoRekamMedis() == string) {
                 return daftarPasien.get(i);
             }
         }
