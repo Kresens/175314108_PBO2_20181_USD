@@ -31,10 +31,6 @@ public class Pasien {
      public Pasien() {
     }
      
-      public Pasien(String nama) {
-        this.nama = nama;
-    }
-
     /**
      * constructor untuk mendeklarasikan objek pasien
      */
@@ -237,11 +233,11 @@ public class Pasien {
      * @return
      */
     public String BuatNomorRekamMedis() {
-        String nomorRekamMEdis;
+        String noRekamMedis;
         Date date = new Date();
         SimpleDateFormat ft = new SimpleDateFormat(" ");
-        nomorRekamMEdis = ft.format(date) + nama.substring(0, 3);
-        return nomorRekamMEdis;
+        noRekamMedis = ft.format(date) + nama.substring(0, 3);
+        return noRekamMedis;
     }
     public static void daftarPasienBaru(Pasien pasien) {
          daftarPasien.add(pasien);
