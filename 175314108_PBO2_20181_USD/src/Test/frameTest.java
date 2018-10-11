@@ -22,6 +22,6 @@ public class frameTest {
        FrameUtama test = new FrameUtama();
         test.setSize(500, 400);
         test.setVisible(true);
-        
     } 
+    
 }

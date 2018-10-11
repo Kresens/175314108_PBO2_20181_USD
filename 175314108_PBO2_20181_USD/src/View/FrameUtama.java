@@ -47,7 +47,6 @@ public class FrameUtama extends JFrame implements ActionListener{
         exitMenuItem.addActionListener(this);
         DaftarPasienBaruDialog.addActionListener(this);
         DaftarAntrianDialog.addActionListener(this);
-
         this.setJMenuBar(menuBar);
     }
 
