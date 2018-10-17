@@ -5,17 +5,21 @@
  */
 package Model;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author admin
  */
 public class Pasien {
-    
-    
     private String noRekamMedis;
     private String nama;
     private String alamat;
@@ -242,9 +246,11 @@ public class Pasien {
     public static void daftarPasienBaru(Pasien pasien) {
          daftarPasien.add(pasien);
     }
-    
-    public void tambahPasienBaru(Pasien pasien) {
-        daftarPasien.add(pasien);
+    public static ArrayList<Pasien> getDaftarPasien() {
+        return daftarPasien;
+}
+    public static void tambahPasienBaru(Pasien pasien) {
+        Pasien.daftarPasien.add(pasien);
     }
     
     public static Pasien cariPasien(String noRekamMedis) {
@@ -254,5 +260,27 @@ public class Pasien {
             }
         }
         return null;
+    }
+    
+    public static void simpanDaftarPasien(File file) throws IOException{
+       try {
+            FileOutputStream fos = new FileOutputStream(file);
+            for (int i = 0; i < daftarPasien.size(); i++) {
+                String data = daftarPasien.get(i).toString();
+                fos.write(data.getBytes());
+            }
+            fos.close();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Pasien.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Pasien.class.getName()).log(Level.SEVERE, null, ex);
+}
+    }
+    
+    public static void bacaDaftarPasien(File file){
+        daftarPasien.stream();
+    }
+    public String tostring(){
+        return noRekamMedis+"/t"+ nama+"/t"+ alamat+"/t";
     }
 }

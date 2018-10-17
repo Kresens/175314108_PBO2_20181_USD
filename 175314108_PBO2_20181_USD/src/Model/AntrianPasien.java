@@ -18,9 +18,10 @@ public class AntrianPasien {
     private int tanggalAntrian;
     private int bulanAntrian;
     private int tahunAntrian;
-    private Pasien daftarPasienantri[];
+    private Pasien daftarPasienAntri[];
+    public AntrianPasien daftarAntri[];
     
-    private ArrayList<Pasien> daftarPasien = new ArrayList<Pasien>();
+    private ArrayList<Pasien> daftarAntrian = new ArrayList<Pasien>();
 
     /**
      * constructor untuk mendeklarasi objek dari AntrianPasien
@@ -54,7 +55,7 @@ public class AntrianPasien {
      * @return
      */
     public ArrayList<Pasien> getDaftarPasien() {
-        return daftarPasien;
+        return daftarAntrian;
     }     //pengambalian nilai dari variabel daftarPasien
 
     /**
@@ -64,13 +65,13 @@ public class AntrianPasien {
      * @param nama
      */
     public void setDaftarPasien(ArrayList<Pasien> daftarPasien) {
-        this.daftarPasien = daftarPasien;
+        this.daftarAntrian = daftarPasien;
     }   // pernyataan bahwa nilai dari variabel daftarPasien sama dengan nilai dari variabel lokal daftarPasien
 
     /**
      * Suatu method untuk menampilkan tanggal dan waktu pada antrian
      */
-    public void settanggalAntrian(int tanggalAntrian)throws Exception{
+    public void setTanggalAntrian(int tanggalAntrian)throws Exception{
         if (tanggalAntrian < 32 && tanggalAntrian > 0) {
             this.tanggalAntrian = tanggalAntrian;
     } else { throw new Exception(" tanggal tidak valid");
@@ -102,17 +103,35 @@ public class AntrianPasien {
      */
     public void Mendaftar(Pasien pasien) {
         // mengisi data pada variabel daftarPasien dengan variabel lokal daftarPasien 
-        daftarPasien.add(pasien);
+        daftarAntrian.add(pasien);
     }
     public Pasien cariPasien(String string){
    
-     for (int i = 0; i < daftarPasien.size(); i++) {
-            if (daftarPasien.get(i).getNoRekamMedis() == string) {
-                return daftarPasien.get(i);
+     for (int i = 0; i < daftarAntrian.size(); i++) {
+            if (daftarAntrian.get(i).getNoRekamMedis() == string) {
+                return daftarAntrian.get(i);
             }
         }
-        return null;
-        
+        return null;  
     }
     
+    public static void daftarPasien(Pasien pasien,int tanggal,int bulan, int tahun,Klinik klinik) {
+        
+    }
+    public static void buatAntrian(int tanggalAntrian,int bulanAntrian,int tahunAntrian,Klinik klinik) throws Exception{
+        AntrianPasien antrian = new AntrianPasien();
+        antrian.setTanggalAntrian(tanggalAntrian);
+        antrian.setBulanAntrian(bulanAntrian);
+        antrian.setTahunAntrian(tahunAntrian);
+        antrian.setKlinik(klinik);
+   
+        if (cariAntrian(tanggalAntrian, bulanAntrian, tahunAntrian, klinik) <0) {
+            
+        } else {
+            System.out.println("antrian sudah ada");
+}
+    }
+    public static int cariAntrian(int tanggal, int bulan, int tahun, Klinik klinik){
+        return 0; 
+    }
 }
