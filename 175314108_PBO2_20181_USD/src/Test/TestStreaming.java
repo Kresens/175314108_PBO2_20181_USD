@@ -7,6 +7,11 @@ package Test;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -14,7 +19,23 @@ import java.io.FileInputStream;
  */
 public class TestStreaming {
     public static void main(String[] args) {
-        FileInputStream fos = null;
+       FileOutputStream fos = null;
+        try {
+            File file = new File("test.txt"); // file tujuan
+            String data ="hello world"; // data yang disimpan
+            fos = new FileOutputStream(file,true); // object stream
+            fos.write(data.getBytes());
+        } catch (FileNotFoundException ex) {
+            System.out.println(ex.getMessage());
+        } catch (IOException ex) {
+            Logger.getLogger(TestStreaming.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                fos.close();
+            } catch (IOException ex) {
+                Logger.getLogger(TestStreaming.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
         
             
     }    
