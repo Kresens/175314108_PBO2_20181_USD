@@ -5,6 +5,8 @@
  */
 package Model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author User
@@ -13,6 +15,8 @@ public class Klinik {
 
     private String idKlinik;
     private String nama;
+    
+    public static ArrayList<Klinik> daftarKlinik= new ArrayList<Klinik>();
 
     /**
      * constructor untuk mendeklarasikan objek KLinik
@@ -59,4 +63,21 @@ public class Klinik {
     public void setNama(String nama) {
         this.nama = nama;   // pernyataan nilai dari variabel nama sama dengan nilai dari variabel nama
     }
-}
+    
+    public static void tambahKlinik(Klinik klinik){
+        daftarKlinik.add(klinik);
+    }
+    
+     public static Klinik cariKlinik(String namaKlinik){
+        for (int i = 0; i < daftarKlinik.size(); i++) {
+            if(daftarKlinik.get(i).
+                    getNama().equalsIgnoreCase(namaKlinik))
+            {
+                return daftarKlinik.get(i);
+            }
+        }
+        return null;
+    }
+     
+     
+    }
