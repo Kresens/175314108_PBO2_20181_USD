@@ -14,16 +14,16 @@ import java.util.ArrayList;
 public class Klinik {
 
     private String idKlinik;
-    private String nama;
+    private String namaKlinik;
     
     public static ArrayList<Klinik> daftarKlinik= new ArrayList<Klinik>();
 
     /**
      * constructor untuk mendeklarasikan objek KLinik
      */
-    public Klinik(String idKlinik, String nama) {
+    public Klinik(String idKlinik, String namaKlinik) {
         this.idKlinik = idKlinik;   // pernyataan nilai variabel idKlinik sama dengan nilai dari variabel idKlinik
-        this.nama = nama;   // pernyataan nilai variabel nama sama dengan nilai dari variabel nama
+        this.namaKlinik = namaKlinik;   // pernyataan nilai variabel nama sama dengan nilai dari variabel nama
     }
 
     /**
@@ -50,8 +50,8 @@ public class Klinik {
      *
      * @return
      */
-    public String getNama() {
-        return nama;
+    public String getNamaKlinik() {
+        return namaKlinik;
     }   //pengambalian nilai dari variabel nama
 
     /**
@@ -61,7 +61,7 @@ public class Klinik {
      * @param nama
      */
     public void setNama(String nama) {
-        this.nama = nama;   // pernyataan nilai dari variabel nama sama dengan nilai dari variabel nama
+        this.namaKlinik = namaKlinik;   // pernyataan nilai dari variabel nama sama dengan nilai dari variabel nama
     }
     
     public static void tambahKlinik(Klinik klinik){
@@ -71,13 +71,13 @@ public class Klinik {
      public static Klinik cariKlinik(String namaKlinik){
         for (int i = 0; i < daftarKlinik.size(); i++) {
             if(daftarKlinik.get(i).
-                    getNama().equalsIgnoreCase(namaKlinik))
+                    getNamaKlinik().equalsIgnoreCase(namaKlinik))
             {
                 return daftarKlinik.get(i);
             }
         }
         return null;
     }
-     
-     
+
+    
     }

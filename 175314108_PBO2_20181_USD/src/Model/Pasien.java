@@ -40,14 +40,9 @@ public class Pasien {
     /**
      * constructor untuk mendeklarasikan objek pasien
      */
-    public Pasien(String nama, String alamat, String tempatLahir, int tanggalLahir, int bulanLahir, int tahunLahir, String nik) {
+    public Pasien(String nama, String noRekamMedis) {
         this.nama = nama;
-        this.alamat = alamat;
-        this.tempatLahir = tempatLahir;
-        this.tanggalLahir = tanggalLahir;
-        this.bulanLahir = bulanLahir;
-        this.tahunLahir = tahunLahir;
-        this.nik = nik;
+        this.noRekamMedis = noRekamMedis;
     }
     
 
@@ -276,7 +271,7 @@ public class Pasien {
             Logger.getLogger(Pasien.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(Pasien.class.getName()).log(Level.SEVERE, null, ex);
-}
+        }
     }
     
     public static void bacaDaftarPasien(File file){
@@ -312,4 +307,14 @@ public class Pasien {
     public String tostring(){
         return noRekamMedis+"/t"+ nama+"/t"+ alamat+"/t";
     }
+
+    int size() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    Object get(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
 }
