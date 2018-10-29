@@ -17,7 +17,7 @@ public class AntrianKlinik {
     private int tahunAntrian;
     private Klinik Klinik;
     
-    public static ArrayList<AntrianKlinik> daftarPasienAntri = new ArrayList<AntrianKlinik>();
+    private ArrayList<Pasien> daftarPasienAntri = new ArrayList<Pasien>();
 
     public AntrianKlinik() {
     }
@@ -28,21 +28,17 @@ public class AntrianKlinik {
         this.tahunAntrian = tahunAntrian;
         this.Klinik = klinik;
     }
-    
-    public ArrayList<AntrianKlinik> getDaftarPasien() {
+
+    public void mendaftar(Pasien pasien) {
+        getDaftarPasien().add(pasien);
+    }
+
+    public ArrayList<Pasien> getDaftarPasien() {
         return daftarPasienAntri;
     }
-    
-     public static void buatAntrian(int tanggal, int bulan, int tahun, Klinik klinik){
-        
-    }
-    
-    public int cariAntrian(int tanggal, int bulan, int tahun, Klinik klinik){
-        return -1;
-    }
-    
-    public static void daftarPasien(Pasien pasien, int tanggal, int bulan, int tahun, Klinik klinik){
-        
+
+    public void setDaftarPasien(ArrayList<Pasien> daftarPasien) {
+        this.daftarPasienAntri = daftarPasien;
     }
 
     public int getTanggalAntrian() {
@@ -57,6 +53,7 @@ public class AntrianKlinik {
         return bulanAntrian;
     }
 
+  
     public void setBulanAntrian(int bulanAntrian) {
         this.bulanAntrian = bulanAntrian;
     }
@@ -68,21 +65,22 @@ public class AntrianKlinik {
     public void setTahunAntrian(int tahunAntrian) {
         this.tahunAntrian = tahunAntrian;
     }
-    
-     public Klinik getKlinik(Klinik klinik) {
-        return klinik;
+
+    public Klinik getKlinik() {
+        return Klinik;
     }
-     
-     public void setKlinik(Klinik klinik) {
+
+    public void setKlinik(Klinik klinik) {
         this.Klinik = klinik;
-}
-    
-    public String tostring(){
-         return String.valueOf(tahunAntrian)
+    }
+
+    public String toString() {
+        return String.valueOf(tahunAntrian)
                 + String.valueOf(bulanAntrian)
                 + String.valueOf(tanggalAntrian)
                 + Klinik.getIdKlinik()
                 + Klinik.getNamaKlinik();
     }
 
+  
 }
