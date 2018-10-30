@@ -222,5 +222,9 @@ public class RumahSakit implements Serializable{
     public void simpanObjekRumahSakit(File file) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    public void bacaObjekRumahSakit(File file) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
