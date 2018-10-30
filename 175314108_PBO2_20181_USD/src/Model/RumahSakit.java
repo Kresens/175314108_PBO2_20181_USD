@@ -218,5 +218,9 @@ public class RumahSakit implements Serializable{
     public ArrayList<Klinik> getDaftarKlinik() {
         return daftarKlinik;
     }
+
+    public void simpanObjekRumahSakit(File file) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
