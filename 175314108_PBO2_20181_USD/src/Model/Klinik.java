@@ -79,5 +79,9 @@ public class Klinik {
         return null;
     }
 
+    Object getNama() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     
     }
