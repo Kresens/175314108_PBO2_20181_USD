@@ -136,7 +136,7 @@ public class RumahSakit implements Serializable{
             RumahSakit rsu = (RumahSakit) sc.readObject();
             this.setNama(rsu.getNama());
             this.setAlamat(rsu.getAlamat());
-            this.setDaftarPasien(rsu.getDaftarPasien().);
+            this.setDaftarPasien(rsu.getDaftarPasien());
         } catch (FileNotFoundException ex) {
             Logger.getLogger(RumahSakit.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
@@ -224,6 +224,10 @@ public class RumahSakit implements Serializable{
     }
 
     public void bacaObjekRumahSakit(File file) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void setDaftarPasien(ArrayList<Pasien> daftarPasien) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
